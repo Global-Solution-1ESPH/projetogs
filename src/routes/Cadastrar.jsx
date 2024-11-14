@@ -1,98 +1,99 @@
-import {useParams,Link, useNavigate} from 'react-router-dom'
-import { ImCancelCircle } from "react-icons/im";
-import { useState,useEffect } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { ImCancelCircle } from 'react-icons/im';
+import { useState, useEffect } from 'react';
 
+const Cadastrar = () => {
+  let { id } = useParams();
 
-const Cadastrar=()=>{
+  const [usuarios, setUsuarios] = useState({
+    id,
+    usuario: '',
+    senha: '',
+  });
 
+  const navigate = useNavigate();
 
+  let metodo = 'post';
+  if (id) {
+    metodo = 'put';
+  }
 
-    let {id} =useParams();
+  const handleChange = (e) => {
+    setUsuarios({ ...usuarios, [e.target.name]: e.target.value });
+  };
 
-    const [usuarios,setUsuarios]= useState({
-        id,
-        usuario:'',
-        senha:'',
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    fetch(`http://localhost:5000/usuarios/${id ? id : ''}`, {
+      method: metodo,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(usuarios),
+    }).then(() => {
+      navigate('/login');
     });
+  };
 
-
-     const navigate = useNavigate();
-
-
-    let metodo ="post";
-    if(id){
-        metodo="put";
-    }
-   
-
-     const handleChange=(e)=>{
-        setUsuarios({...usuarios, [e.target.name]: e.target.value});
-     }
-
-  
-
-     const handleSubmit=(e)=>{
-
-        e.preventDefault();
-
-        fetch(`http://localhost:5000/usuarios/${id ? id:''}`,{
-
-        method: metodo,
-
-        headers: {
-            'Content-Type':'application/json',
-        },
-        body: JSON.stringify(usuarios),
-        }).then(()=> {
-            navigate("/login")
-        });
-     }
-
-
-     useEffect(()=>{
-        if(id) {
-        fetch(`http://localhost:5000/usuarios/${id}`)
-        .then((res)=>{
-            return res.json();
+  useEffect(() => {
+    if (id) {
+      fetch(`http://localhost:5000/usuarios/${id}`)
+        .then((res) => {
+          return res.json();
         })
-        .then((data)=>{
-            setUsuarios(data);
+        .then((data) => {
+          setUsuarios(data);
         });
     }
-     },[id])
+  }, [id]);
 
+  return (
+    <section className="flex justify-center items-center min-h-screen bg-gray-100">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md"
+      >
+        <h1 className="text-2xl font-bold text-center mb-6">Cadastrar Usuário</h1>
 
-    return (
-        <section className="usuario">
+        <div className="mb-4">
+          <input
+            type="text"
+            name="usuario"
+            placeholder="Digite seu Usuário"
+            value={usuarios.usuario}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
 
-            <form onSubmit={handleSubmit}>
-                <h1>Cadastrar Usuário</h1>
-                <input
-                    type="text"
-                    name="usuario"
-                    placeholder="Digite seu Usuário"
-                    value={usuarios.usuario}
+        <div className="mb-6">
+          <input
+            type="password"
+            name="senha"
+            placeholder="Digite sua senha"
+            value={usuarios.senha}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
 
-                    onChange={handleChange}
-                />
+        <button
+          type="submit"
+          className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-200"
+        >
+          Cadastrar
+        </button>
 
-                <input
-                    type="password"
-                    name="senha"
-                    placeholder="Digite sua senha"
-                    value={usuarios.senha}
-                    onChange={handleChange}
-                />
+        <div className="mt-4 flex justify-center items-center text-gray-600">
+          <Link to="/login" className="flex items-center space-x-1 hover:text-blue-500">
+            <ImCancelCircle />
+            <span>Cancelar</span>
+          </Link>
+        </div>
+      </form>
+    </section>
+  );
+};
 
-                <button type="submit">Cadastrar</button>
-                <Link to="/login">
-                    <ImCancelCircle />
-                </Link>
-
-
-
-            </form>
-        </section>
-    )
-}
-export default Cadastrar
+export default Cadastrar;
