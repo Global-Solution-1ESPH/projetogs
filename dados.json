@@ -1,0 +1,24 @@
+{
+  "usuarios": [
+    {
+      "id": "6fad",
+      "usuario": "Admin",
+      "senha": "12345"
+    },
+    {
+      "id": "89a1",
+      "usuario": "Cidade",
+      "senha": "1234567"
+    },
+    {
+      "id": "c196",
+      "usuario": "aa",
+      "senha": "aa"
+    },
+    {
+      "id": "45b5",
+      "usuario": "",
+      "senha": ""
+    }
+  ]
+}

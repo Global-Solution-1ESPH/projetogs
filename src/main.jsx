@@ -8,6 +8,7 @@ import Login from './routes/Login.jsx'
 import Cadastrar from './routes/Cadastrar.jsx'
 import Sobre from './routes/Sobre.jsx'
 import Solucao from './routes/Solucao.jsx'
+import Dashboard from './routes/Dashboard.jsx'
 
 
 
@@ -21,6 +22,7 @@ const router =createBrowserRouter([{
   {path:'/cadastrar',element:<Cadastrar/>},
   {path:'/sobre',element:<Sobre/>},
   {path:'/solucao',element:<Solucao/>},
+  {path:'/dashboard',element:<Dashboard/>},
 
   ]
 }])
