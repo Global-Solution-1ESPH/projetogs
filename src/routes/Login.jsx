@@ -42,46 +42,50 @@ const Login = () => {
   }, []);
 
   return (
-    <section>
-      <div>
-        <div>
-          <form onSubmit={handleSubmit}>
-            <span>Faça seu Login</span>
+    <section className="flex justify-center items-center min-h-screen bg-gray-100">
+      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <h1 className="text-2xl font-bold text-center mb-6">Faça seu Login</h1>
 
-            <div>
-              <input
-                type="text"
-                id="usuario"
-                ref={usuario}
-                placeholder="Usuário"
-              />
-            </div>
+          <div>
+            <input
+              type="text"
+              id="usuario"
+              ref={usuario}
+              placeholder="Usuário"
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-            <div>
-              <input
-                type="password"
-                id="senha"
-                ref={senha}
-                placeholder="Senha"
-              />
-            </div>
+          <div>
+            <input
+              type="password"
+              id="senha"
+              ref={senha}
+              placeholder="Senha"
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-            <div>
-              <button type="submit">Login</button>
-            </div>
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition duration-200"
+          >
+            Login
+          </button>
 
-            <ul>
-              <li>
-                <span>Esqueceu sua senha?</span>
-              </li>
-
-              <li>
-                <span>Não tem conta?</span>
-                <Link to="/cadastrar">Criar</Link>
-              </li>
-            </ul>
-          </form>
-        </div>
+          <ul className="text-center mt-4 text-gray-600">
+            <li>
+              <span>Esqueceu sua senha?</span>
+            </li>
+            <li className="mt-2">
+              <span>Não tem conta? </span>
+              <Link to="/cadastrar" className="text-blue-600 hover:underline">
+                Criar
+              </Link>
+            </li>
+          </ul>
+        </form>
       </div>
     </section>
   );
