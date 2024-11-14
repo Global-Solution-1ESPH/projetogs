@@ -2,7 +2,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ImCancelCircle } from 'react-icons/im';
 import { useState, useEffect } from 'react';
 
-const Cadastrar = () => {
+const CadastrarUsuario = () => {
   let { id } = useParams();
 
   const [usuarios, setUsuarios] = useState({
@@ -96,4 +96,4 @@ const Cadastrar = () => {
   );
 };
 
-export default Cadastrar;
+export default CadastrarUsuario;

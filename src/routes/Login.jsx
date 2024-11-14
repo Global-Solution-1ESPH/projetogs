@@ -80,7 +80,7 @@ const Login = () => {
             </li>
             <li className="mt-2">
               <span>Não tem conta? </span>
-              <Link to="/cadastrar" className="text-blue-600 hover:underline">
+              <Link to="/cadastrarusuario" className="text-blue-600 hover:underline">
                 Criar
               </Link>
             </li>
