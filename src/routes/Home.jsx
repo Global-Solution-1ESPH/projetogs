@@ -25,6 +25,9 @@ const Home = () => {
 
 
   return (
+    <div>
+
+
     <div style={{ position: 'relative', width: 'auto', margin: 'auto' }}>
       <img
         src={img[currentIndex]}
@@ -35,6 +38,8 @@ const Home = () => {
 
 
 
+    </div>
+    
   );
 };
 
