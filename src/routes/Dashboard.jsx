@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Dashboard = () => {
+  
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -32,8 +33,9 @@ const Dashboard = () => {
   };
 
   return (
+    
     <>
-      <div className="p-4 bg-blue-600 text-white flex justify-between items-center">
+      <div className="p-4 bg-gray-800 text-white flex justify-between items-center">
         <h1 className="text-xl font-bold">Dashboard</h1>
         <button
           onClick={handleLogout}
@@ -114,7 +116,7 @@ const Dashboard = () => {
           {/* Botão de Enviar */}
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition duration-300"
+            className="w-full bg-gray-800 text-white py-2 rounded hover:bg-gray-700 transition duration-300"
           >
             Enviar
           </button>
