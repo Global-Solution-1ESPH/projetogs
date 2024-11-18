@@ -42,7 +42,7 @@ const Login = () => {
   }, []);
 
   return (
-    <section className="flex justify-center items-center min-h-screen bg-gray-100">
+    <section className="flex justify-center items-center pt-[220px] pb-[220px]  bg-blue-200">
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
         <form onSubmit={handleSubmit} className="space-y-6">
           <h1 className="text-2xl font-bold text-center mb-6">Faça seu Login</h1>
@@ -69,7 +69,7 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition duration-200"
+            className="w-full bg-gray-800 text-white py-2 rounded hover:bg-gray-700 transition duration-200"
           >
             Login
           </button>
@@ -80,7 +80,7 @@ const Login = () => {
             </li>
             <li className="mt-2">
               <span>Não tem conta? </span>
-              <Link to="/cadastrarusuario" className="text-blue-600 hover:underline">
+              <Link to="/cadastrarusuario" className="text-gray-800 hover:underline">
                 Criar
               </Link>
             </li>
