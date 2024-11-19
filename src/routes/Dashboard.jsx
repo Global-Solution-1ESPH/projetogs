@@ -46,9 +46,9 @@ const Dashboard = () => {
       </div>
 
       {/* Formulário */}
-      <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <div className="flex justify-center items-center min-h-screen bg-blue-200">
         <form onSubmit={handleSubmit} className="bg-white p-6 shadow-lg rounded-lg w-full max-w-md">
-          <h1 className="text-2xl font-bold mb-6 text-center">Formulário</h1>
+          <h1 className="text-2xl text-gray-800 font-bold mb-6 text-center">Formulário</h1>
 
           {/* Nome */}
           <div className="mb-4">

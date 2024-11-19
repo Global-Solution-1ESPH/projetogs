@@ -30,7 +30,7 @@ const Home = () => {
         </p>
         <Link
           to="/sobre"
-          className="ml-[370px] self-center justify-center bg-gray-800 text-white text-lg font-medium py-2 px-6 rounded-lg shadow-md hover:bg-gray-700 transition duration-300 mt-[20px]"
+          className="self-center justify-center bg-gray-800 text-white text-lg font-medium py-2 px-6 rounded-lg shadow-md hover:bg-gray-700 transition duration-300 mt-[20px]"
         >
           Saiba mais
         </Link>
