@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 const Sobre =()=>{
     return(
-      <section className="min-h-screen flex flex-col">
+      <section className="bg-blue-200 min-h-screen flex flex-col">
         
         <section className="h-1/3 flex flex-col gap-12 p-5"> 
         
@@ -14,40 +14,46 @@ const Sobre =()=>{
         <section className="h-1/3 p-10 flex flex-col gap-10">
         <h2 className="self-center text-blue-200 text-2xl font-semibold p-4 bg-gray-800" style={{ borderRadius: '30px' }}>Nossas Soluções</h2>
         <div className="flex justify-around">
-          <div class="max-w-sm rounded overflow-hidden shadow-xl">
-            <img class="w-full" src="/img/card-top.jpg" alt="Smart Energy"/>
-            <div class="px-6 py-4">
-              <div class="font-bold text-xl mb-2">Smart Energy</div>
-              <p class="text-gray-700 text-base">
+          
+          <div className="bg-white max-w-sm rounded overflow-hidden shadow-xl">
+            <img className="w-full" src="/img/card-top.jpg" alt="Smart Energy"/>
+
+            <div className="px-6 py-4">
+              <div className="font-bold text-xl mb-2">Smart Energy</div>
+              <p className="text-gray-700 text-base">
                 Dispositivo IoT feito para impulsionar o desenvolvimento das Microrredes no Brasil.
               </p>
               <Link to='/solucao' className="text-blue-950 underline">Saiba Mais</Link>
             </div>
-            <div class="px-6 pt-4 pb-2">
-              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#energiaVerde</span>
-              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#sustentabilidade</span>
-              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#microrredes</span>
+
+            <div className="px-6 pt-4 pb-2">
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#energiaVerde</span>
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#sustentabilidade</span>
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#microrredes</span>
             </div>
           </div>
 
-          <div class="max-w-sm rounded overflow-hidden shadow-xl">
-            <img class="w-full" src="../src/assets/paineis-solares.jpg" alt="Green Wave"/>
-            <div class="px-6 py-4">
-              <div class="font-bold text-xl mb-2">Economia com Painéis Solares</div>
-              <p class="text-gray-700 text-base">
+          <div className="bg-white max-w-sm rounded overflow-hidden shadow-xl">
+            <img className="w-full" src="../src/assets/paineis-solares.jpg" alt="Green Wave"/>
+
+            <div className="px-6 py-4">
+              <div className="font-bold text-xl mb-2">Economia com Painéis Solares</div>
+              <p className="text-gray-700 text-base">
                 Descubra quanto você pode economizar na conta de energia ao adotar uma solução sustentável com painéis solares.
               </p>
               <Link to='/solucao' className="text-blue-950 underline">Saiba Mais</Link>
             </div>
-            <div class="px-6 pt-4 pb-2">
-              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#energia</span>
-              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#sustentabilidade</span>
-              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#solar</span>
+
+            <div className="px-6 pt-4 pb-2">
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#energia</span>
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#sustentabilidade</span>
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#solar</span>
             </div>
+
           </div>
         </div>
         
-        </section>
+      </section>
 
         <section className="flex flex-col w-full gap-10 items-center self-center p-8 bg-gray-800 mb-10">
           <h2 className="text-2xl font-semibold self-center text-white">Por que Escolher Nossas Soluções?</h2>
