@@ -5,16 +5,16 @@ const Sobre =()=>{
         
         <section className="h-1/3 flex flex-col gap-12 p-5"> 
         
-          <h2 className="self-center text-2xl font-semibold ">Sobre Nós</h2>
-          <p className="w-3/4 self-center">Bem-vindo ao nosso espaço dedicado à inovação em <strong>energias renováveis</strong>! <br></br>Nosso objetivo é unir tecnologia e sustentabilidade para facilitar a transição para um futuro mais verde e acessível.</p>
+          <h2 className="self-center text-4xl font-semibold mt-[10px]">Sobre Nós</h2>
+          <p className="w-3/4 self-center text-center">Bem-vindo ao nosso espaço dedicado à inovação em <strong>energias renováveis</strong>! Nosso objetivo é unir tecnologia e sustentabilidade para facilitar a transição para um futuro mais verde e acessível.</p>
 
         </section>
 
 
         <section className="h-1/3 p-10 flex flex-col gap-10">
-        <h2 className="self-center text-2xl font-semibold p-4 ">Nossas Soluções</h2>
+        <h2 className="self-center text-blue-200 text-2xl font-semibold p-4 bg-gray-800" style={{ borderRadius: '30px' }}>Nossas Soluções</h2>
         <div className="flex justify-around">
-          <div class="max-w-sm rounded overflow-hidden shadow-lg">
+          <div class="max-w-sm rounded overflow-hidden shadow-xl">
             <img class="w-full" src="/img/card-top.jpg" alt="Smart Energy"/>
             <div class="px-6 py-4">
               <div class="font-bold text-xl mb-2">Smart Energy</div>
@@ -30,12 +30,12 @@ const Sobre =()=>{
             </div>
           </div>
 
-          <div class="max-w-sm rounded overflow-hidden shadow-lg">
-            <img class="w-full" src="/img/card-top.jpg" alt="Green Wave"/>
+          <div class="max-w-sm rounded overflow-hidden shadow-xl">
+            <img class="w-full" src="../src/assets/paineis-solares.jpg" alt="Green Wave"/>
             <div class="px-6 py-4">
-              <div class="font-bold text-xl mb-2">Green Wave</div>
+              <div class="font-bold text-xl mb-2">Economia com Painéis Solares</div>
               <p class="text-gray-700 text-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                Descubra quanto você pode economizar na conta de energia ao adotar uma solução sustentável com painéis solares.
               </p>
               <Link to='/solucao' className="text-blue-950 underline">Saiba Mais</Link>
             </div>
