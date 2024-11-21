@@ -6,8 +6,13 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
+    // Remover os dados de login e do formulário ao fazer logout
     sessionStorage.removeItem("usuario");
     sessionStorage.removeItem("senha");
+    sessionStorage.removeItem("nome");
+    sessionStorage.removeItem("email");
+    sessionStorage.removeItem("mensagem");
+    
     alert("Saindo....");
     navigate("/");
   };
@@ -39,6 +44,11 @@ const Dashboard = () => {
     });
 
     if (response.ok) {
+      // Salvar os dados do formulário no sessionStorage
+      sessionStorage.setItem("nome", formData.nome);
+      sessionStorage.setItem("email", formData.email);
+      sessionStorage.setItem("mensagem", formData.mensagem);
+
       alert("Dados salvos com sucesso!");
       setFormData({ nome: "", email: "", mensagem: "" });
       fetchData();
@@ -55,6 +65,15 @@ const Dashboard = () => {
 
   // Carrega os dados ao iniciar
   useEffect(() => {
+    // Carregar dados salvos do sessionStorage, se existirem
+    const nome = sessionStorage.getItem("nome");
+    const email = sessionStorage.getItem("email");
+    const mensagem = sessionStorage.getItem("mensagem");
+
+    if (nome && email && mensagem) {
+      setFormData({ nome, email, mensagem });
+    }
+
     fetchData();
   }, []);
 
