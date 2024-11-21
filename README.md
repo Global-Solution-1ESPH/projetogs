@@ -1,3 +1,9 @@
+# Grupo
+
+Felipe Marques de Oliveira - RM556319
+Giulia Rocha Barbizan Alves - RM558084
+Gustavo Viega Martins Lopes - RM555885
+
 # para rodar a pagina
 
 npm run dev
