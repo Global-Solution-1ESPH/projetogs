@@ -24,7 +24,7 @@ const Dashboard = () => {
     mensagem: "",
   });
 
-  const [informacoes, setInformacoes] = useState([]);
+  const [setInformacoes] = useState([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -150,18 +150,7 @@ const Dashboard = () => {
         </form>
       </div>
 
-      <div>
-        <h2 className="text-xl font-bold">Dados salvos</h2>
-        <ul>
-          {informacoes.map((info, index) => (
-            <li key={index}>
-              <p><strong>Nome:</strong> {info.nome}</p>
-              <p><strong>Email:</strong> {info.email}</p>
-              <p><strong>Mensagem:</strong> {info.mensagem}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+      
     </>
   );
 };
