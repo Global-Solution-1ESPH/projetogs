@@ -24,7 +24,7 @@ const Dashboard = () => {
     mensagem: "",
   });
 
-  const [dados, setDados] = useState([]);
+  const [informacoes, setInformacoes] = useState([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,8 +34,8 @@ const Dashboard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Envia os dados para o backend
-    const response = await fetch("http://localhost:3001/save", {
+    // Envia os dados para o backend, salvando na coleção 'informacoes'
+    const response = await fetch("http://localhost:5000/informacoes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -51,16 +51,16 @@ const Dashboard = () => {
 
       alert("Dados salvos com sucesso!");
       setFormData({ nome: "", email: "", mensagem: "" });
-      fetchData();
+      fetchInformacoes();
     } else {
       alert("Erro ao salvar os dados.");
     }
   };
 
-  const fetchData = async () => {
-    const response = await fetch("http://localhost:3001/dados");
+  const fetchInformacoes = async () => {
+    const response = await fetch("http://localhost:5000/informacoes");
     const dados = await response.json();
-    setDados(dados);
+    setInformacoes(dados);
   };
 
   // Carrega os dados ao iniciar
@@ -74,7 +74,7 @@ const Dashboard = () => {
       setFormData({ nome, email, mensagem });
     }
 
-    fetchData();
+    fetchInformacoes();
   }, []);
 
   return (
@@ -153,11 +153,11 @@ const Dashboard = () => {
       <div>
         <h2 className="text-xl font-bold">Dados salvos</h2>
         <ul>
-          {dados.map((dado, index) => (
+          {informacoes.map((info, index) => (
             <li key={index}>
-              <p><strong>Nome:</strong> {dado.nome}</p>
-              <p><strong>Email:</strong> {dado.email}</p>
-              <p><strong>Mensagem:</strong> {dado.mensagem}</p>
+              <p><strong>Nome:</strong> {info.nome}</p>
+              <p><strong>Email:</strong> {info.email}</p>
+              <p><strong>Mensagem:</strong> {info.mensagem}</p>
             </li>
           ))}
         </ul>
