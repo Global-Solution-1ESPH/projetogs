@@ -6,7 +6,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Remover os dados de login e do formulário ao fazer logout
+    
     sessionStorage.removeItem("usuario");
     sessionStorage.removeItem("senha");
     sessionStorage.removeItem("nome");
@@ -17,7 +17,7 @@ const Dashboard = () => {
     navigate("/");
   };
 
-  // Estado para o formulário
+  
   const [formData, setFormData] = useState({
     nome: "",
     email: "",
@@ -34,7 +34,7 @@ const Dashboard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Envia os dados para o backend, salvando na coleção 'informacoes'
+    
     const response = await fetch("http://localhost:5000/informacoes", {
       method: "POST",
       headers: {
@@ -44,7 +44,7 @@ const Dashboard = () => {
     });
 
     if (response.ok) {
-      // Salvar os dados do formulário no sessionStorage
+      
       sessionStorage.setItem("nome", formData.nome);
       sessionStorage.setItem("email", formData.email);
       sessionStorage.setItem("mensagem", formData.mensagem);
@@ -63,9 +63,9 @@ const Dashboard = () => {
     setInformacoes(dados);
   };
 
-  // Carrega os dados ao iniciar
+  
   useEffect(() => {
-    // Carregar dados salvos do sessionStorage, se existirem
+    
     const nome = sessionStorage.getItem("nome");
     const email = sessionStorage.getItem("email");
     const mensagem = sessionStorage.getItem("mensagem");
@@ -93,7 +93,7 @@ const Dashboard = () => {
         <form onSubmit={handleSubmit} className="bg-white p-6 shadow-lg rounded-lg w-full max-w-md">
           <h1 className="text-2xl text-gray-800 font-bold mb-6 text-center">Contate-nos</h1>
 
-          {/* Nome */}
+          
           <div className="mb-4">
             <label htmlFor="nome" className="block text-gray-700 font-medium mb-2">
               Nome
@@ -109,7 +109,7 @@ const Dashboard = () => {
             />
           </div>
 
-          {/* Email */}
+          
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
               Email
@@ -125,7 +125,7 @@ const Dashboard = () => {
             />
           </div>
 
-          {/* Mensagem */}
+          
           <div className="mb-4">
             <label htmlFor="mensagem" className="block text-gray-700 font-medium mb-2">
               Mensagem
@@ -140,7 +140,7 @@ const Dashboard = () => {
             />
           </div>
 
-          {/* Botão de Enviar */}
+          
           <button
             type="submit"
             className="w-full bg-gray-800 text-white py-2 rounded hover:bg-gray-700 transition duration-300"
