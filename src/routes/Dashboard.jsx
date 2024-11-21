@@ -1,6 +1,6 @@
 import { MdLogout } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -16,7 +16,6 @@ const Dashboard = () => {
   const [formData, setFormData] = useState({
     nome: "",
     email: "",
-    senha: "",
     mensagem: "",
   });
 
@@ -41,7 +40,7 @@ const Dashboard = () => {
 
     if (response.ok) {
       alert("Dados salvos com sucesso!");
-      setFormData({ nome: "", email: "", senha: "", mensagem: "" });
+      setFormData({ nome: "", email: "", mensagem: "" });
       fetchData();
     } else {
       alert("Erro ao salvar os dados.");
@@ -55,7 +54,7 @@ const Dashboard = () => {
   };
 
   // Carrega os dados ao iniciar
-  useState(() => {
+  useEffect(() => {
     fetchData();
   }, []);
 
@@ -73,7 +72,7 @@ const Dashboard = () => {
 
       <div className="flex justify-center items-center min-h-screen bg-blue-200">
         <form onSubmit={handleSubmit} className="bg-white p-6 shadow-lg rounded-lg w-full max-w-md">
-          <h1 className="text-2xl text-gray-800 font-bold mb-6 text-center">Formulário</h1>
+          <h1 className="text-2xl text-gray-800 font-bold mb-6 text-center">Contate-nos</h1>
 
           {/* Nome */}
           <div className="mb-4">
@@ -101,22 +100,6 @@ const Dashboard = () => {
               id="email"
               name="email"
               value={formData.email}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
-
-          {/* Senha */}
-          <div className="mb-4">
-            <label htmlFor="senha" className="block text-gray-700 font-medium mb-2">
-              Senha
-            </label>
-            <input
-              type="password"
-              id="senha"
-              name="senha"
-              value={formData.senha}
               onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
