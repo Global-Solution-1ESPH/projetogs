@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Dashboard = () => {
-  
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -21,19 +20,46 @@ const Dashboard = () => {
     mensagem: "",
   });
 
+  const [dados, setDados] = useState([]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(`Dados enviados:\nNome: ${formData.nome}\nEmail: ${formData.email}\nMensagem: ${formData.mensagem}`);
-    setFormData({ nome: "", email: "", senha: "", mensagem: "" }); // Reseta o formulário
+
+    // Envia os dados para o backend
+    const response = await fetch("http://localhost:3001/save", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      alert("Dados salvos com sucesso!");
+      setFormData({ nome: "", email: "", senha: "", mensagem: "" });
+      fetchData();
+    } else {
+      alert("Erro ao salvar os dados.");
+    }
   };
 
+  const fetchData = async () => {
+    const response = await fetch("http://localhost:3001/dados");
+    const dados = await response.json();
+    setDados(dados);
+  };
+
+  // Carrega os dados ao iniciar
+  useState(() => {
+    fetchData();
+  }, []);
+
   return (
-    
     <>
       <div className="p-4 bg-gray-800 text-white flex justify-between items-center">
         <h1 className="text-xl font-bold">Dashboard</h1>
@@ -45,7 +71,6 @@ const Dashboard = () => {
         </button>
       </div>
 
-      {/* Formulário */}
       <div className="flex justify-center items-center min-h-screen bg-blue-200">
         <form onSubmit={handleSubmit} className="bg-white p-6 shadow-lg rounded-lg w-full max-w-md">
           <h1 className="text-2xl text-gray-800 font-bold mb-6 text-center">Formulário</h1>
@@ -121,6 +146,19 @@ const Dashboard = () => {
             Enviar
           </button>
         </form>
+      </div>
+
+      <div>
+        <h2 className="text-xl font-bold">Dados salvos</h2>
+        <ul>
+          {dados.map((dado, index) => (
+            <li key={index}>
+              <p><strong>Nome:</strong> {dado.nome}</p>
+              <p><strong>Email:</strong> {dado.email}</p>
+              <p><strong>Mensagem:</strong> {dado.mensagem}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </>
   );
